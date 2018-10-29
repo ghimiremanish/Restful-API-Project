@@ -9,7 +9,7 @@ router.get('/', (req,res,next) => {
 
 
 router.post('/', (req,res,next) => {
-    res.status(200).json({
+    res.status(201).json({
         message:'Handling POST Request to /products'
     });
 });
@@ -20,7 +20,7 @@ router.delete('/', (req,res,next) => {
     });
 });
 
-
+// get router with ID
 router.get('/:productID', (req, res, next) => {
     const id = req.params.productID;
     if (id === 'status') {
@@ -34,4 +34,23 @@ router.get('/:productID', (req, res, next) => {
         });
     }
 });
+
+// patch request -> data update route with ID
+router.patch('/:productID', (req, res, next) => {
+    res.status(200).json({
+        message: 'Product Updated'
+    }); 
+});
+
+// delete route with ID
+router.delete('/:productID', (req, res, next) => {
+    res.status(200).json({
+        message: 'Product Deleted'
+    }); 
+});
+
+
+
+
+
 module.exports = router;
